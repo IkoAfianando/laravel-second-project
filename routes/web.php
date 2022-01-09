@@ -25,7 +25,7 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::get('/admin', [\App\Http\Controllers\AdminController::class, 'index'])->name('admin');
 });
 
-Route::get('/warga', [\App\Http\Controllers\DataWargaController::class, 'index'])->name('warga');
+Route::get('/warga', [\App\Http\Controllers\DataWargaController::class, 'index'])->name('warga')->middleware(['auth']);
 Route::get('/rumah', [\App\Http\Controllers\DataRumahController::class, 'index'])->name('rumah');
 
 require __DIR__.'/auth.php';
